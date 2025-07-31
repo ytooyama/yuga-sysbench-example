@@ -1,0 +1,8 @@
+# ベースイメージとして指定されたYugabyteDBのイメージを使用
+FROM docker.io/yugabytedb/yugabyte:2.25.2.0-b359
+
+# 必要なパッケージをインストール
+RUN dnf install -y iproute-tc && dnf clean all
+
+# デフォルトのコマンドを指定（必要に応じて変更）
+CMD ["/bin/bash"]

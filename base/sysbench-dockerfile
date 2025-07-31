@@ -1,0 +1,8 @@
+# ベースイメージとして指定されたYugabyteDBのイメージを使用
+FROM docker.io/yugabytedb/yugabyte:2.25.2.0-b359
+
+# 必要なパッケージをインストール
+RUN curl -LO https://github.com/yugabyte/sysbench/releases/download/1.0.0-yb/sysbench-1.0.0-1.el8.x86_64.rpm && dnf install -y ./sysbench-1.0.0-1.el8.x86_64.rpm && dnf clean all && rm -rf sysbench-1.0.0-1.el8.x86_64.rpm 
+
+# デフォルトのコマンドを指定（必要に応じて変更）
+CMD ["/bin/bash"]
